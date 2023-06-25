@@ -11,14 +11,16 @@ import cors from 'cors';
 import sgMail from '@sendgrid/mail';
 
 dotenv.config();
+
 const app=express();
+app.use(cors());
 app.use(express.json());
 connectDb();
 app.use("/api/import",ImportData);
 app.use("/api/products",productRoute);
 app.use("/api/users",userRouter);
 app.use("/api/orders",orderRouter);
-app.use(cors());
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.get('/', (req, res) => {
   res.send('Hello World!');
