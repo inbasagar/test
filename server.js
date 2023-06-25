@@ -20,6 +20,9 @@ app.use("/api/users",userRouter);
 app.use("/api/orders",orderRouter);
 app.use(cors());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 /* app.get("/api/products",(req,res)=>{
     res.json(products);
 })
