@@ -18,7 +18,9 @@ app.use("/api/import",ImportData);
 app.use("/api/products",productRoute);
 app.use("/api/users",userRouter);
 app.use("/api/orders",orderRouter);
-app.use(cors());
+app.use(cors({
+    origin:['http://localhost:3000']
+}));
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.get('/', (req, res) => {
   res.send('Hello World!');
