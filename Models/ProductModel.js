@@ -40,16 +40,16 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    size: {
-      width: {
-        type: Number,
-        default: 11,
-      },
-      height: {
-        type: Number,
-        default: 11,
-      },
+    
+    width: {
+      type: Number,
+      default: 11,
     },
+    height: {
+      type: Number,
+      default: 11,
+    },
+    
   },
   {
     timestamps: true,
