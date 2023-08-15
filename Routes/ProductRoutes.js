@@ -136,10 +136,10 @@ productRoute.post(
   asyncHandler(async (req, res) => {
     const { name, price, description, image, countInStock,height,width } = req.body;
     const productExist = await Product.findOne({ name });
-    if (productExist) {
+    {/*if (productExist) {
       res.status(400);
       throw new Error("Product name already exist");
-    } else {
+    } else { */}
       const product = new Product({
         name,
         price,
@@ -157,7 +157,7 @@ productRoute.post(
         res.status(400);
         throw new Error("Invalid product data");
       }
-    }
+    {/** }*/}
   })
 );
   
