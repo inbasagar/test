@@ -49,7 +49,14 @@ const productSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
-    
+    price_11X11: {
+      type: Number,
+      default: 0,
+    },
+    price_15X12: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,
