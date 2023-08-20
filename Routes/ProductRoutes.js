@@ -134,7 +134,7 @@ productRoute.post(
   protect,
   admin,
   asyncHandler(async (req, res) => {
-    const { name, price, description, image, countInStock,height,width,price_11X11,price_15X12 } = req.body;
+    const { name, price, description, image, countInStock,height,width} = req.body;
     const productExist = await Product.findOne({ name });
     {/*if (productExist) {
       res.status(400);
@@ -149,8 +149,7 @@ productRoute.post(
         user: req.user._id,
         height,
         width,
-        price_11X11,
-        price_15X12,
+
       });
       if (product) {
         const createdproduct = await product.save();
@@ -169,7 +168,7 @@ productRoute.post(
     protect,
     admin,
     asyncHandler(async (req, res) => {
-      const { name, price, description, image, countInStock,height,width } = req.body;
+      const { name, price, description, image, countInStock,height,width} = req.body;
       const product = await Product.findById(req.params.id);
       if (product) {
         product.name = name || product.name;
@@ -179,7 +178,14 @@ productRoute.post(
         product.countInStock = countInStock || product.countInStock;
         product.height=height|| product.height;
         product.width=width||product.width;
-  
+        {/** 
+        product.price_11X11=price_11X11||product.price_11X11;
+        product.price_15X12=price_15X12||product.price_15X12;
+        product.price_10X8=price_10X8||product.price_10X8;
+        product.price_10X12=price_10X12||product.price_10X12;
+        product.price_12X15=price_12X15||product.price_12X15;
+        */}
+        
         const updatedProduct = await product.save();
         res.json(updatedProduct);
       } else {
