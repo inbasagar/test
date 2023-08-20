@@ -33,7 +33,7 @@ const productSchema = mongoose.Schema(
     price: {
       type: Number,
       required: true,
-      default: 0,
+      
     },
     countInStock: {
       type: Number,
@@ -49,14 +49,8 @@ const productSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
-    price_11X11: {
-      type: Number,
-      default: 0,
-    },
-    price_15X12: {
-      type: Number,
-      default: 0,
-    },
+
+    
   },
   {
     timestamps: true,
