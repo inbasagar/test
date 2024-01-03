@@ -23,7 +23,7 @@ app.use("/api/users",userRouter);
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.get('/', (req, res) => {
-  res.send('Hello test branch!');
+  res.send('Hello test server from inbaaa hrithik!');
 });
 /* app.get("/api/products",(req,res)=>{
     res.json(products);
