@@ -60,8 +60,7 @@ productRoute.get(
 
 productRoute.get(
   "/all",
-  protect,
-  admin,
+
   asyncHandler(async (req, res) => {
     const pageSize = 1;
     const page = Number(req.query.pageNumber) || 1;
@@ -114,8 +113,7 @@ productRoute.get(
 // DELETE PRODUCT
 productRoute.delete(
     "/:id",
-    protect,
-    admin,
+
     asyncHandler(async (req, res) => {
       const product = await Product.findById(req.params.id);
       if (product) {
@@ -131,8 +129,7 @@ productRoute.delete(
 // CREATE PRODUCT
 productRoute.post(
   "/",
-  protect,
-  admin,
+
   asyncHandler(async (req, res) => {
     const { name, price, description, image, countInStock,height,width} = req.body;
     const productExist = await Product.findOne({ name });
@@ -146,7 +143,7 @@ productRoute.post(
         description,
         image,
         countInStock,
-        user: req.user._id,
+        //user: req.user._id,
         height,
         width,
 
@@ -165,8 +162,7 @@ productRoute.post(
   // UPDATE PRODUCT
   productRoute.put(
     "/:id",
-    protect,
-    admin,
+
     asyncHandler(async (req, res) => {
       const { name, price, description, image, countInStock,height,width} = req.body;
       const product = await Product.findById(req.params.id);
